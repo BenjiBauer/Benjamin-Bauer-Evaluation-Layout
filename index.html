@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap-4.5.0-dist/css/bootstrap.min.css">
+
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>FactSet Exercise</title>
+    
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <div class="header-top"></div>
+
+    <div class="header sticky-top">
+      
+      <div class="header-bottom">
+        <div class="container nav-container">
+          <a class="brand" href="#"><img src="img/factset.svg"></a>
+          <div class="mobileMenuBtn">Menu</div>
+          <div class="menu">
+            <div class="menu-item"><a href="#">Clients</a></div>
+            <div class="menu-item"><a href="#">Products</a></div>
+            <div class="menu-item"><a href="#">About</a></div>
+            <div class="menu-item"><a href="#">Contact</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mobileMenu mobieMenuHidden">
+        <div class="container">
+          <div class="menu-item"><a href="#">Clients</a></div>
+          <div class="menu-item"><a href="#">Products</a></div>
+          <div class="menu-item"><a href="#">About</a></div>
+          <div class="menu-item"><a href="#">Contact</a></div>
+        </div>
+      </div>
+
+    </div>
+  
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+      <!-- INTRODUCTION -->
+      <div class="row introduction">
+        <div class="col-md-12">
+          <h1 class="page-heading">Exercise</h1>
+          <p class="paragraph-text">Please prepare the following exercise for your next interview.</p>
+        </div>
+      </div>
+
+
+      <!-- TILES -->
+      <div class="row">
+
+        <!-- TILES 1 - DESCRIPTION -->
+        <div class="col-md-6">
+          <div class="tile-bk" id="tile-1">
+            <h2 class="title-heading tile-title">Description:</h2>
+            <p class="paragraph-text">The aim of this exercise is to assess your capabilities of interpreting a design into code.<br><br>
+            Use this whole page as the design and content to create a functional styled web page using at least the following technologies: HTML, CSS (Compiled from SCSS) and JavaScript/Typescript.<br><br>
+            Feel free to use any frameworks and 3rd party libraries.<br><br>
+            The page needs to responsive for mobile screens so the menu and content  will need to adjust accordingly.<br><br>
+            Get creative in how you see the elements of the design working… (e.g. a sticky header, button animations etc…)
+            </p>
+            <hr>
+            <p class="paragraph-text">We will assess each candidate based on how accurate the final output is, code quality and technologies used.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- TILES 2 - CURRENCY CALCULATOR -->
+        <div class="col-md-6" >
+          <div class="tile-bk" id="tile-2">
+            <h2 class="title-heading tile-title">Currency Calculator:</h2>
+
+            <!-- Input Fields-->
+            <div class="row">
+
+              <!-- From-Selector -->
+              <div class="col-lg-6 col-md-12">
+                <h2 class="title-heading">From:</h2>
+                <div class="dropdown inputStyle">
+                  <select id="selectFrom">
+                    <option value="EUR">Euro</option>
+                    <option value="USD">US Dollar</option>
+                  </select>
+                  <img src="img/icon-chevron.svg">
+                </div>
+              </div>
+
+              <!-- To-Selector -->
+              <div class="col-lg-6 col-md-12">
+                <h2 class="title-heading">To:</h2>
+                <div class="dropdown inputStyle">
+                  <select id="selectTo">
+                    <option value="USD">US Dollar</option>
+                    <option value="EUR">Euro</option>
+                  </select>
+                  <img src="img/icon-chevron.svg">
+                </div>
+              </div>
+
+              <!-- Amont-Input -->
+              <div class="col-lg-6 col-md-12">
+                <h2 class="title-heading">Amount:</h2>
+                <input class="inputStyle" id="amount" type="number" placeholder="Please enter a number" value="200">
+              </div>
+
+              <!-- Convert Button -->
+              <div class="col-md-12">
+                <button id="convert"><img src="img/icon-check.svg">Convert</button>
+              </div>
+
+              <!-- Results-->
+              <div id="results" class="col-md-12">
+                <span id="convertedNumber">216.16</span><span id="currency">USD</span>
+                <p id="exchangeRate">Exchange rate: 1 EUR = 1.08078 USD</p>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <!-- FOOTER -->
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+          <div class="footerContent paragraph-text">
+            <p>Copyright © 2020 FactSet - UI/UX Evaluation Exercise v1.3</p>
+            <p>Good Luck :)</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Frameworks: jQuery, Bootstrap JS -->
+    <script src="assets/jQuery-3.5.1/jquery-3.5.1.min.js"></script>
+    <script src="assets/bootstrap-4.5.0-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Other JavaScript -->
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

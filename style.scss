@@ -1,0 +1,398 @@
+//Importing Main Global Variables
+@use 'base';
+
+
+/*- Font-Styles-*/
+.page-heading{
+    font-family: base.$primary-fontFamilyBold;
+    font-size: 24px;
+    color: base.$highlight-color;
+}
+
+.title-heading{
+    font-family: base.$primary-fontFamilyBold;
+    font-size: 18px;
+    color: base.$primaryFont-color;
+}
+
+.paragraph-text{
+    font-family: base.$primary-fontFamily;
+    font-size: 16px;
+    color: base.$primaryFont-color;
+    line-height: 21px;
+}
+
+/* - General -*/
+
+body{
+    background-color: base.$primaryBK-color;
+}
+
+hr{
+    border-color: base.$hrBorder-color;
+}
+
+
+/* - Header -*/
+
+%menuBtn {
+    font-family: base.$primary-fontFamilyBold;
+    color: base.$primaryFont-color;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.2s;
+
+    &:hover{
+        @media only screen and (min-device-width: 480px){ //This Line helps, that we do not have this Hover Effekt on Mobile Devices (iOS Bug)
+            text-decoration: none;
+            opacity: 0.65;
+        }
+    }
+
+    &:active{
+        opacity: 0.4;
+    }
+  }
+
+
+.header-top{
+    background-color: base.$primaryBrand-color;
+    height: 45px;
+}
+
+.header{
+    display: block;
+    width: 100%;
+
+    /* - Nav & Menu -*/
+
+    .header-bottom{
+        display: flex;
+        align-items: center;
+        background-color: base.$secondaryBK-color;
+        height: 118px;
+        justify-content: space-between;
+        transition: all 0.5s;
+
+        &.scrollShrink{
+            height: 65px;
+        }
+
+
+        .nav-container{
+            display: flex;
+            justify-content: space-between;
+
+            .mobileMenuBtn{
+                display: none;
+                cursor: pointer;
+                user-select: none;
+                @extend %menuBtn;
+            }
+
+            .menu{
+                display: flex;
+
+                .menu-item a{
+                    @extend %menuBtn;
+                    margin-left: 84px;
+                    
+                }
+            }
+        }
+    }
+
+    .mobileMenu{
+        display: none;
+    }
+
+}
+
+
+ /* - Main Content -*/
+
+.introduction {
+
+    h1{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    p{
+        margin-bottom: 56px;
+    }
+    
+}
+
+
+
+/*- Tiles -*/
+
+.tile-bk{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 56px;
+    min-height: 523px;
+}
+
+.tile-title{
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+#tile-1{
+    background: base.$secondaryBK-color;
+    border: 1px solid base.$tileBorder-color;
+
+    hr{
+        margin-top: 20.5px;
+        margin-bottom: 20.5px;
+    }
+}
+
+#tile-2{
+    background: #FFFFFF;
+    border: 1px solid base.$tileBorder-color;
+    box-shadow: 0px 0px 10px base.$tileBorder-color;
+}
+
+
+/*- Drop Down -*/
+
+.dropdown{
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    img{
+        display: block;
+        position: absolute;
+        right: 9px;
+        pointer-events: none; //if not none, nativ dropdown is not working here
+    }
+}
+
+//General Style for Input fields (Dropdown or Text/Number Input)
+.inputStyle{
+    font-family: base.$primary-fontFamily;
+    font-size: 16px;
+    color: base.$primaryFont-color;
+    letter-spacing: 0;
+
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid base.$inputBorder-color;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+//This class will be added, if there is an issue with the Amount Input
+.amountIssue{
+    animation-name: shake;
+    animation-duration: 0.65s;
+    border: solid 2.5px #ee0000;
+}
+
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate(-1px, 0);
+    }
+    
+    20%, 80% {
+      transform: translate(2px, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate(-4px, 0);
+    }
+  
+    40%, 60% {
+      transform: translate(4px, 0);
+    }
+  }
+
+
+@mixin overwriteDefaultStyle($property) {
+    appearance: $property;
+    -webkit-appearance: $property;
+    -moz-appearance: $property;
+  }
+
+ select {
+    //Overwrite default style
+    @include overwriteDefaultStyle(none);
+    border:none;
+    width: 100%;
+    padding-left: 16px;
+  } 
+
+  #amount{
+    //Overwrite default style - Do not use -webkit-appearance: or moz-appearance. Otherwise it wont work in firefox
+    appearance: none;
+    width: 100%;
+    padding-left: 16px;
+  }
+
+
+/* Hiding Native Input Arrows for Numbers*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+//For Firefox
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+//Removes Blue Border arround inputs on Click
+*:focus {
+   outline: none;
+}
+
+button:focus {
+    outline:0;
+}
+
+//Convert Button
+#convert{
+    display: flex;
+    align-items: center;
+    font-family: base.$primary-fontFamily; //TODO: Font missing: AkkuratPro-Bold
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+
+    height: 36px;
+    background: base.$highlight-color;
+    border-radius: 5px;
+    border: none;
+    padding-right: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+
+
+    &:hover{
+        @media only screen and (min-device-width: 480px){ //This line helps, that we do not have this Hover Effekt on Mobile Devices (iOS Bug)
+            background: scale-color(base.$highlight-color, $lightness: -15%);
+        }
+    }
+
+    &:active{
+        background: scale-color(base.$highlight-color, $lightness: -50%);
+        transform: scale(0.9, 0.9);
+        outline: none;
+    }
+}
+
+
+/*- Results -*/
+#results{
+    margin-top: 20px;
+
+    #convertedNumber{
+        font-family: base.$primary-fontFamily;
+        font-size: 48px;
+        color: base.$primaryFont-color;
+    }
+
+    #currency{
+        font-family: base.$primary-fontFamily;
+        font-size: 21px;
+        color: base.$secondaryFont-color;
+    
+        padding-left:8px;
+    }
+}
+
+
+
+.footerContent{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+
+@media only screen and (max-width: 992px){
+
+    //Mobile Menu visible on small devices or small windows
+    .header{
+        .header-bottom{
+            .nav-container{
+
+                .mobileMenuBtn{
+                    display: flex;
+                }
+    
+                .menu{
+                    display: none;
+                }
+            }
+
+        }
+
+        .mobileMenu{
+            display: block;
+            background-color: base.$highlight-color;
+            padding-top: 10px;
+            max-height:500px;
+            transition: all 0.5s;
+            overflow: hidden;
+
+            .menu-item{
+                display: flex;
+                text-align: right;
+                margin-bottom:10px;
+
+                a{
+                    font-family: base.$primary-fontFamilyBold;
+                    font-size: 16px;
+                    color: white;
+                    margin-left: 0px;
+                    text-align: right;
+                    width: 100%;
+                    transition: all 0.2s;
+
+                    &:hover{
+                        text-decoration: none; //Removing Underline on hover
+                        @media only screen and (min-device-width: 480px){ //This Line helps, that we do not have this Hover Effekt on Mobile Devices (iOS Bug)
+                            opacity: 0.75;
+                        }
+                    }
+                
+                    &:active{
+                        opacity: 0.5;
+                    }
+                }
+            }
+        }
+
+        //This class can be added to the Mobile Menu, so it gets a smooth animation. Do not just set it to display: none
+        .mobieMenuHidden{
+            padding-top: 0px;
+            padding-bottom: 0px;
+            max-height:0px;
+        }
+    }
+
+    
+
+    
+
+    
+
+
+
+
+}
